@@ -222,6 +222,8 @@ func (req *NetlinkRequest) Execute(sockType int, resType uint16) ([][]byte, erro
 		s = req.XfmrSocket
 	case syscall.NETLINK_ROUTE:
 		s = req.RouteSocket
+	case syscall.NETLINK_INET_DIAG:
+		s = req.RouteSocket
 	default:
 		return nil, fmt.Errorf("Socket type %d is not handled", sockType)
 	}
